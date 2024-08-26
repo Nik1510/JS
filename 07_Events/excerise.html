@@ -1,0 +1,14 @@
+<button id="myButton">Click me!</button>
+
+<script>
+  document.getElementById('myButton').addEventListener('click', function(event) {
+    console.log('Button clicked!');
+    console.log('Event type:', event.type);
+    console.log('Timestamp:', event.timeStamp);
+    console.log('Target element:', event.target);
+    console.log('Current handling element:', event.currentTarget);
+    console.log('Mouse coordinates (clientX, clientY):', event.clientX, event.clientY);
+    console.log('Alt key pressed?', event.altKey);
+    console.log('Default behavior prevented?', event.defaultPrevented);
+  });
+</script>

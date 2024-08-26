@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    document.getElementById('owl').onclick = function(){
+        alert("owl clicked")
+    }
+   
+
+    // -----------Perviously Used but not now but you can know it for knownledge ----------------
+     // attachEvent():-
+    // jQuery - on
+    // -------------------------------------------------------------------------------------------
+
+    // ----------- Interview question-------------------------
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+    // ------------------------------------------------------- 
+
+//     The false parameter in the addEventListener method is used to set the event propagation mode.
+//       Here’s what it means:
+
+// Event Propagation: There are two modes of event propagation in the DOM: bubbling and capturing.
+//  Event propagation is the order in which event handlers are called when an event occurs.
+// Bubbling (default): In bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+// Capturing: In capturing, the event is first captured by the outermost element and then propagated to the inner elements.
+// The false Parameter: When you set the third argument of addEventListener to false, you’re specifying that the event handler should be executed in the bubbling phase (which is the default behavior).
+//  If you set it to true, the event handler would be executed in the capturing phase.
+
+
+
+//  In the bubbling mode, the event is first captured and handled by the innermost element
+//  and then propagated outward. In the capturing mode, the event is first captured by the outer
+//  most element and then propagated inward.
+//  The false parameter in the addEventListener method sets the event propagation mode to bubbling.
+//  If you set it to true, it will set the event propagation mode to capturing.
+//  In most cases, you would want to use the bubbling mode, which is why the
+//  default value of the third parameter is false.
+//  The addEventListener method is used to attach an event handler to an element.
+
+
+//  The syntax is: element.addEventListener(event, function, useCapture)
+
+
+//  Where event is the type of event (like click, mouseover, etc.),
+//  function is the event handler function, and useCapture is a boolean value
+//  indicating whether to use event capturing or bubbling.
+//  The event handler function is called when the event occurs.
+//  The event object is passed as a parameter to the event handler function.
+//  The event object contains information about the event, such as the target element,
+//  the type of event, and the coordinates of the mouse pointer.
+//  The event handler function can use this information to handle the event accordingly.
+//  The event handler function can also use the this keyword to refer to the element
+//  that triggered the event.
+//  The addEventListener method is a part of the DOM Level 2 Events specification
+//  and is supported by most modern browsers.
+//  The attachEvent method is an older method that was used in Internet Explorer
+//  before it supported the addEventListener method.
+//  The attachEvent method is not part of any standard specification and is not
+//  supported by most modern browsers.
+//  The jQuery library provides a cross-browser way to attach event handlers
+//  using the on method. The on method is a part of the jQuery API and is not
+//  a native JavaScript method.
+//  The on method is used to attach an event handler to an element.
+//  The syntax is: $(element).on(event, function)
+//  Where element is the jQuery object, event is the type of event (like click, mouse
+//  over, etc.), and function is the event handler function.
+//  The on method is a part of the jQuery API and is not a native JavaScript method.
+//  The on method is used to attach an event handler to an element.
+//  The event handler function is called when the event occurs.
+//  The event object is passed as a parameter to the event handler function.
+//  The event object contains information about the event, such as the target element,
+//  the type of event, and the coordinates of the mouse pointer.
+//  The event handler function can use this information to handle the event accordingly.
+//  The event handler function can also use the this keyword to refer to the element
+//  that triggered the event.
+//  The on method is a part of the jQuery API and is not a native JavaScript method.
+//  The on method is used to attach an event handler to an element.
+//  The event handler function is called when the event occurs.
+//  The event object is passed as a parameter to the event handler function.
+//  The event object contains information about the event, such as the target element,
+//  the type of event, and the coordinates of the mouse pointer.
+//  The event handler function can use this information to handle the event accordingly.
+
+
+// Add an event listener for 'click' events on the element with id 'images'.
+// The third parameter 'false' specifies that the event handler should be executed during the bubbling phase.
+// This is the default behavior, but it's good practice to specify it for clarity.
+document.getElementById('images').addEventListener('click', function(e){
+    console.log("clicked inside the ul");
+}, false);
+
+
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log(e);
+        // console.log("owl clicked");
+        // e.stopPropagation() // Uncommenting this line would prevent the event from bubbling up
+    },false)
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+   
+    
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target.tagName);
+    //     if (e.target.tagName === 'IMG') {
+    //         console.log(e.target.id);
+    //         let removeIt = e.target.parentNode
+    //         removeIt.remove()
+    //     }
+    
+        
+    // })
+    
+    //removeIt.parentNode.removeChild(removeIt)
+</script>
+</html>
+

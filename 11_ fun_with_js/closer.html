@@ -1,0 +1,82 @@
+<!-- Here were we learn about Closures  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closer aur chai</title>
+</head>
+<body style="background-color: #212121;">
+    <button id = "orange"> Orange</button>
+    <button id = "green"> Green</button>
+    <script>
+
+    // --------------- Lexical Scoping ---------------------------
+    // //     function init() {
+    // //     let name = "Mozilla";
+    // //     function displayName() {
+    // //         console.log(name); 
+    // //     }
+    // //     displayName();
+    // // }  
+    // // init();
+
+    // function outer(){
+    //     let username ="nikhil"
+    //     // console.log("Outer",secret); // here secret is not defined 
+    //     // here secret belongs to children so grandfather cannot access the information 
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner",username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo",username);
+    //         // console.log(secret); // here secret is not shared as the "children" doesnot share any information 
+    //     }
+    //     inner()
+    //     innerTwo()
+    // }
+    // outer()
+    // console.log("TOO OUTER",username);// this cannot excute as username is not defined beacuse of scope of the variable
+
+    // ------------------------- Closure -----------------------------------------------------------------------------------------
+    // function makeFunc(){
+    //     const name ="Mozilla";
+    //     function displayName(){
+    //         console.log(name);
+    //     }
+       
+    //     return displayName;
+    // }
+    
+    // const myFunc =  makeFunc();
+    // myFunc();
+
+    
+
+    </script>
+    <script>
+        // --------- real world example --------------------
+        // document.getElementById("orange")
+        // .onclick= function(){
+        //     document.body.style.background = `orange`
+        // }
+        // document.getElementById("green")
+        // .onclick = function(){
+        //     document.body.style.background = `green`
+        // }
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor =`${color}`
+
+           return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+            
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+    </script> 
+</body>
+</html>
